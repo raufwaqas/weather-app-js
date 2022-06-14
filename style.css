@@ -1,0 +1,46 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  border: 2px solid red;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+
+}
+
+.app {
+  width: 350px;
+  height: 600px;
+  border: 2px solid #212529;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+
+}
+
+.card-1 img {
+  width: 65px;
+  margin-top: -12px;
+
+}
+
+[class ^="card-"] {
+  height: 130px;
+  border: 2px solid #dadada;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+}
