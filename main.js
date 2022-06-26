@@ -1,6 +1,7 @@
 let form = document.getElementById('input-form')
 let input = document.getElementById('input-field')
 let result = document.getElementById('results')
+let Body = document.querySelector('body')
 dayjs.extend(window.dayjs_plugin_utc)
 
 
@@ -45,7 +46,11 @@ let fetch_data = async () => {
 
 let print_results = (res) => {
   let { name, sys, weather, wind, main, timezone } = res
+  let icon = weather.filter((item, index) => index === 0).map(item => item.main)
+  bgImage(icon[0])
+
   return `<h4 class="text-center text-capitalize mb-3">${name}, ${sys.country}</h4>
+  
   <div class="cards">
     <div class="card-1">
         <img src="http://openweathermap.org/img/wn/${weather.filter((item, index) => index === 0).map(item => item.icon)}@2x.png" alt="" />
@@ -81,4 +86,10 @@ let print_results = (res) => {
 let hourConverter = (input, timezone) => {
   return dayjs.unix(input).utc().utcOffset(timezone / 3600).format('h : mm A')
 
+}
+
+
+let bgImage = (value) => {
+  console.log(value)
+  return Body.style.backgroundImage = `url(img/weather/${value}.jpg)`;
 }
